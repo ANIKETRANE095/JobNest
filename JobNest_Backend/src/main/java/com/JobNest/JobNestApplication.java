@@ -1,0 +1,30 @@
+package com.JobNest;
+
+import org.modelmapper.Conditions;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication // includes @Configuration
+public class JobNestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JobNestApplication.class, args);
+	}
+
+	
+	public ModelMapper modelMapper() {
+		System.out.println("in model mapper creation");
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration()
+				
+				.setMatchingStrategy(MatchingStrategies.STRICT)
+				
+				.setPropertyCondition(Conditions.isNotNull());
+		return mapper;
+
+	}
+
+}
