@@ -28,6 +28,14 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+# Ignore Visual Studio folders and files
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+bin/
+obj/
 
 ### VS Code ###
 .vscode/
